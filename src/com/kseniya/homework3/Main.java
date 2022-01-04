@@ -2,6 +2,8 @@ package com.kseniya.homework3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class Main {
@@ -20,6 +22,8 @@ public class Main {
         Scanner scannerFile;
         try {
             scannerFile = new Scanner(new File(addressFile));
+            Path pathToFile = Paths.get(String.valueOf(scannerFile));
+            addressFile = pathToFile.toAbsolutePath().toString();
         } catch (FileNotFoundException e) {
             System.out.println("Файл " + addressFile + " не найден");
             return;
